@@ -9,7 +9,13 @@ import { ButtonComponent } from './components/button/button.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './components/pages/about/about.component';
 
+const appRoutes: Routes = [
+  { path: '', component: TasksComponent },
+  { path: 'about', component: AboutComponent },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +24,15 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
     TasksComponent,
     TaskItemComponent,
     AddTaskComponent,
+    AboutComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, FontAwesomeModule, FormsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FontAwesomeModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
